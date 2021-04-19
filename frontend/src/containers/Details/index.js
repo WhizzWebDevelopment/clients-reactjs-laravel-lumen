@@ -51,6 +51,7 @@ export default class Details extends Component {
         created_at,
         updated_at
       } = this.state.client;
+
       return (
         <Container className="mb-5">
           <Link className="btn bg-secondary text-white my-5" to="/">
@@ -69,9 +70,11 @@ export default class Details extends Component {
                               <i className="fas fa-mobile-alt mr-2"/>
                               <strong>Phone: </strong> {phone_number}
                             </ListGroup.Item>
+
                             <ListGroup.Item>
                               <strong>Membership type: </strong> {membership_type}
                             </ListGroup.Item>
+
                             <ListGroup.Item>
                               <strong>Membership expiry date: </strong> {membership_expiry_date}
                             </ListGroup.Item>

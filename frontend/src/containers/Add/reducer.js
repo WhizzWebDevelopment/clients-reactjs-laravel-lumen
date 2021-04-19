@@ -1,7 +1,6 @@
 import {CREATE_CLIENT, ADD_CLIENT_SUCCESS, ADD_CLIENT_ERROR} from "../constants"
 
 export default function addReducer(state = {clients: []}, action) {
-  console.log('~~~state in add reducer:', state, 'action:', action)
   switch (action.type) {
   case ADD_CLIENT_SUCCESS:
     return {

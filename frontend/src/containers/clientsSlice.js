@@ -33,7 +33,6 @@ const clientsSlice = createSlice({
       }
     },
     clientDeleted(state, action) {
-      console.log('clientDeleted in clientsSlice'); // ~~~
       const { id } = action.payload;
       const existingClient = state.clients.find((client) => client.id === id);
       if (existingClient) {

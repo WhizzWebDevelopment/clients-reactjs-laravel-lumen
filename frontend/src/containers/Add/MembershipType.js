@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 class SelectMembershipType extends Component {
   constructor(props) {
     super(props);
+    this.props = props;
+    this.handleChange = this.handleChange.bind(this);
   }
 
   membershipOptions = [
@@ -25,7 +27,8 @@ class SelectMembershipType extends Component {
     }),
     control: (provided) => ({
       ...provided,
-      marginTop: "5%",
+      // marginTop: "5%",
+      // marginLeft: "15%"
     })
   }
 
@@ -39,7 +42,7 @@ class SelectMembershipType extends Component {
       id="membershipType"
       onChange={this.handleChange}
       placeholder='Select membership'
-      className="mt-4 col-md-6 col-offset-4"
+      className="mt-4 col-md-4 offset-md-4"
       components={makeAnimated()}
       styles={this.customStyles}
       options={this.membershipOptions}

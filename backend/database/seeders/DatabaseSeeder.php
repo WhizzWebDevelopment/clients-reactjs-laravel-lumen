@@ -1,9 +1,14 @@
 <?php
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Client;
 use Illuminate\Database\Seeder;
 
+/**
+ * Class DatabaseSeeder.
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,6 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        Client::factory()
+            ->count(500)
+            ->create();
     }
 }

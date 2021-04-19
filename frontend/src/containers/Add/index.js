@@ -28,12 +28,11 @@ export class Add extends Component {
     }
     this.updateFirstName = this.updateFirstName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleMembershipTypeChange = this.handleMembershipTypeChange.bind(this);
 
-    console.log('~~~props in constructor:', props)
     this.clientAdded = props.clientAdded || null;
     this.addError = props.addError || null;
 
-    //??? W
     this.props = props;
   }
 
@@ -131,17 +130,14 @@ export class Add extends Component {
       })
     });
     const client = await response.json();
-    console.log('~~~client after adding request:', client)
 
     if (client.errors) {
-      console.log('~~~added error:', )
       this.setState({
         isLoading: false,
         error: true,
         errorMessage: client.errors
       });
     } else {
-      console.log('~~~added well:', )
       this.setState({
         firstName: '',
         lastName: '',
@@ -155,7 +151,6 @@ export class Add extends Component {
         errorMessage: ''
       });
 
-      //~???dispatch({type: ADD_CLIENT_SUCCESS, client})
       this.props.dispatch(addClientSuccess(client));
     }
   } //end async handleSubmit
@@ -165,7 +160,6 @@ export class Add extends Component {
   }
 
   render() {
-    console.log('~~~this.clientAdded:', this.clientAdded)
     if (this.clientAdded) {
       return <Redirect to="/list" />
     }
@@ -220,7 +214,6 @@ export class Add extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('~~~mapStateToProps(state) in add:', state)
   return {
     clients: state.clients
   };
